@@ -1,6 +1,0 @@
-framework module Pods_SLCoreNetNamage_Tests {
-  umbrella header "Pods-SLCoreNetNamage_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}
