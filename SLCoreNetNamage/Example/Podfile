@@ -1,0 +1,14 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'SLCoreNetNamage_Example' do
+  pod 'SLCoreNetNamage', :path => '../'
+
+  target 'SLCoreNetNamage_Tests' do
+    inherit! :search_paths
+
+    pod 'Specta'
+    pod 'Expecta'
+  end
+end

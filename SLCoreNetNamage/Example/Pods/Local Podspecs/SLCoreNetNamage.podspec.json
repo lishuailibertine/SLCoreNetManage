@@ -1,0 +1,22 @@
+{
+  "name": "SLCoreNetNamage",
+  "version": "0.1.0",
+  "summary": "A short description of SLCoreNetNamage.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/18337125565@163.com/SLCoreNetNamage",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "18337125565@163.com": "lishuai19@yeah.net"
+  },
+  "source": {
+    "git": "https://github.com/18337125565@163.com/SLCoreNetNamage.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "SLCoreNetNamage/Classes/**/*"
+}

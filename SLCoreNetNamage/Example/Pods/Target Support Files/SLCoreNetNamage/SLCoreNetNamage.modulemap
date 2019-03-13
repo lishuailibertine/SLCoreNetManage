@@ -1,0 +1,6 @@
+framework module SLCoreNetNamage {
+  umbrella header "SLCoreNetNamage-umbrella.h"
+
+  export *
+  module * { export * }
+}
