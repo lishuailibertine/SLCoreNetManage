@@ -1,0 +1,45 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - Expecta (1.0.6)
+  - SLCoreNetManage (0.1.0)
+  - Specta (1.0.7)
+
+DEPENDENCIES:
+  - AFNetworking
+  - Expecta
+  - SLCoreNetManage (from `../`)
+  - Specta
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - Expecta
+    - Specta
+
+EXTERNAL SOURCES:
+  SLCoreNetManage:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
+  SLCoreNetManage: bee5c75656d847f4b3b5b0a38d011e6a0148a38f
+  Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
+
+PODFILE CHECKSUM: ba8ba8a9d95478406ae8b446b3bc36432b379e0d
+
+COCOAPODS: 1.5.3

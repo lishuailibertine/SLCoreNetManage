@@ -1,0 +1,14 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'SLCoreNetManage_Example' do
+  pod 'SLCoreNetManage', :path => '../'
+  pod 'AFNetworking'
+  target 'SLCoreNetManage_Tests' do
+    inherit! :search_paths
+
+    pod 'Specta'
+    pod 'Expecta'
+  end
+end
