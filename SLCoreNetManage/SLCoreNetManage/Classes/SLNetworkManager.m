@@ -10,6 +10,7 @@
 
 @interface SLNetworkManager()
 @property (nonatomic, strong) NSString *hostClassName;
+@property (nonatomic, strong) dispatch_group_t requestGroup;
 @end
 
 @interface SLWeakObjectDeath :NSObject{}
@@ -19,10 +20,21 @@ typedef void(^SLWeakObjectDeathBlock)(SLWeakObjectDeath *sender);
 - (void)setBlock:(SLWeakObjectDeathBlock)block;
 @end
 
-
 @implementation SLNetworkManager
 - (void)dealloc {
     NSLog(@"%@ call %@ --> %@",[self class],NSStringFromSelector(_cmd),self.hostClassName);
+}
+- (dispatch_group_t)requestGroup{
+    if (!_requestGroup) {
+        _requestGroup = dispatch_group_create();
+    }
+    return _requestGroup;
+}
+- (SLParamManager *)paramManager{
+    if (!_paramManager) {
+        _paramManager = [[SLParamManager alloc] init];
+    }
+    return _paramManager;
 }
 - (void)defaultNetworkConfigManager{
     self.requestSerializer = [AFHTTPRequestSerializer serializer];
@@ -57,34 +69,79 @@ typedef void(^SLWeakObjectDeathBlock)(SLWeakObjectDeath *sender);
     [networkManager configWeakObjectDeathWithOwer:owner];
     return networkManager;
 }
-- (void)runRequest:(SLNetworkRequestType)requestType service:(NSString *)serviceString pathString:(NSString * __nullable)pathString param:(NSDictionary * __nullable)aParam callback:(SLCompletionBlock)callback{
+- (void)RUNRequest:(SLNetworkRequestType)requestType service:(NSString *)serviceString pathString:(NSString * __nullable)pathString param:(NSDictionary * __nullable)aParam{
     if (requestType == SLNetworkRequestType_Get) {
-        [self GETService:serviceString pathString:pathString param:aParam callback:callback];
+        [self GETService:serviceString pathString:pathString param:aParam];
     }
     if (requestType == SLNetworkRequestType_Post) {
-        [self POSTService:serviceString pathString:pathString param:aParam callback:callback];
+        [self POSTService:serviceString pathString:pathString param:aParam];
     }
 }
-- (void)GETService:(NSString *)serviceString pathString:(NSString * __nullable)pathString param:(NSDictionary * __nullable)aParam callback:(SLCompletionBlock)callback{
-    
-    [self GET:@"" parameters:@"" progress:^(NSProgress * _Nonnull downloadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-    }];
+- (void)GETService:(NSString *)serviceString pathString:(NSString * __nullable)pathString param:(NSDictionary * __nullable)aParam {
+    dispatch_block_t startRequest = ^(){
+        __weak typeof(self)weakSelf = self;
+        [self GET:self.paramManager.requestUrl parameters:self.paramManager.requestParam progress:^(NSProgress * _Nonnull downloadProgress) {
+            //处理进度
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            //处理成功
+            [weakSelf successWithOperation:task responseObject:responseObject];
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            //处理失败
+            [weakSelf failureWithOperation:task error:error];
+        }];
+    };
+    if ([self.paramManager respondsToSelector:@selector(handleRequestWithService:path:param:handleFinished:)]) {
+        dispatch_group_async(self.requestGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+            //这里用信号量处理的原因: handleRequest 有可能会执行网络请求，需要在请求返回以后再发起当前请求
+            [self.paramManager handleRequestWithService:serviceString path:pathString param:aParam handleFinished:^(BOOL success, NSError * _Nonnull error, SLParamManager * _Nonnull paramManager) {
+                startRequest();
+               dispatch_semaphore_signal(semaphore);
+            }];
+            //设置超时
+            dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 20 * NSEC_PER_SEC));
+        });
+    }
 }
 
-- (void)POSTService:(NSString *)serviceString pathString:(NSString * __nullable)pathString param:(NSDictionary * __nullable)aParam callback:(SLCompletionBlock)callback{
+- (void)POSTService:(NSString *)serviceString pathString:(NSString * __nullable)pathString param:(NSDictionary * __nullable)aParam{
+    dispatch_block_t startRequest = ^(){
+        __weak typeof(self)weakSelf = self;
+        [self GET:self.paramManager.requestUrl parameters:self.paramManager.requestParam progress:^(NSProgress * _Nonnull downloadProgress) {
+            //处理进度
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            //处理成功
+            [weakSelf successWithOperation:task responseObject:responseObject];
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            //处理失败
+            [weakSelf failureWithOperation:task error:error];
+        }];
+    };
+    if ([self.paramManager respondsToSelector:@selector(handleRequestWithService:path:param:handleFinished:)]) {
+        dispatch_group_async(self.requestGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+            //这里用信号量处理的原因: handleRequest 有可能会执行网络请求，需要在请求返回以后再发起当前请求
+            [self.paramManager handleRequestWithService:serviceString path:pathString param:aParam handleFinished:^(BOOL success, NSError * _Nonnull error, SLParamManager * _Nonnull paramManager) {
+                startRequest();
+                dispatch_semaphore_signal(semaphore);
+            }];
+            //设置超时
+            dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 20 * NSEC_PER_SEC));
+        });
+    }
+}
+- (void)successWithOperation:(NSURLSessionDataTask *)aOperation responseObject:(id)aResponseObject{
+    if ([self.response respondsToSelector:@selector(handleRequestWithService:path:param:handleFinished:)]) {
+        [self.response handleResponse:aOperation responseObject:aResponseObject error:nil];
+    }
+}
+- (void)failureWithOperation:(NSURLSessionDataTask *)aOperation error:(NSError *)error{
     
-    [self POST:@"" parameters:@"" progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-    }];
+   if ([self.response respondsToSelector:@selector(handleRequestWithService:path:param:handleFinished:)]) {
+        [self.response handleResponse:aOperation responseObject:nil error:error];
+    }
 }
 + (AFSecurityPolicy *)defaultSecurityPolicy {
     AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];

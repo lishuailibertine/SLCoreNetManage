@@ -23,7 +23,6 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		90D75FE7F783DA333412A6E4 /* libPods-SLCoreNetManage_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F598DB6CDADE7B308E8DB509 /* libPods-SLCoreNetManage_Tests.a */; };
-		9A6283E1240A0308006A4018 /* SLNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6283DE240A0308006A4018 /* SLNetworkManager.m */; };
 		BB76F15920537B8E106BB0AB /* libPods-SLCoreNetManage_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC60FAE0E5B11E4EFC987E1 /* libPods-SLCoreNetManage_Example.a */; };
 /* End PBXBuildFile section */
 
@@ -65,11 +64,6 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9A6283DD240A0308006A4018 /* SLNetworkResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLNetworkResponse.h; sourceTree = "<group>"; };
-		9A6283DE240A0308006A4018 /* SLNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLNetworkManager.m; sourceTree = "<group>"; };
-		9A6283DF240A0308006A4018 /* SLParamManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLParamManager.h; sourceTree = "<group>"; };
-		9A6283E0240A0308006A4018 /* SLNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLNetworkManager.h; sourceTree = "<group>"; };
-		9A6283E2240A03C0006A4018 /* SLNetworkConfigManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLNetworkConfigManager.h; sourceTree = "<group>"; };
 		A56A997D96A32093D2BEE115 /* Pods-SLCoreNetManage_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SLCoreNetManage_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SLCoreNetManage_Tests/Pods-SLCoreNetManage_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AC99E7E7C6AB4733EACAB868 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F598DB6CDADE7B308E8DB509 /* libPods-SLCoreNetManage_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SLCoreNetManage_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,16 +132,12 @@
 		6003F593195388D20070C39A /* Example for SLCoreNetManage */ = {
 			isa = PBXGroup;
 			children = (
+				9A6283ED240A56AF006A4018 /* SLBaseNetworkManager */,
 				6003F59C195388D20070C39A /* SLAppDelegate.h */,
 				6003F59D195388D20070C39A /* SLAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* SLViewController.h */,
 				6003F5A6195388D20070C39A /* SLViewController.m */,
-				9A6283E0240A0308006A4018 /* SLNetworkManager.h */,
-				9A6283DE240A0308006A4018 /* SLNetworkManager.m */,
-				9A6283E2240A03C0006A4018 /* SLNetworkConfigManager.h */,
-				9A6283DD240A0308006A4018 /* SLNetworkResponse.h */,
-				9A6283DF240A0308006A4018 /* SLParamManager.h */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -194,6 +184,13 @@
 				234D4C91D5553AC9170E9E8D /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		9A6283ED240A56AF006A4018 /* SLBaseNetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SLBaseNetworkManager;
 			sourceTree = "<group>";
 		};
 		C256543A12FD46E4444FCFCF /* Pods */ = {
@@ -357,7 +354,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* SLAppDelegate.m in Sources */,
-				9A6283E1240A0308006A4018 /* SLNetworkManager.m in Sources */,
 				6003F5A7195388D20070C39A /* SLViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);

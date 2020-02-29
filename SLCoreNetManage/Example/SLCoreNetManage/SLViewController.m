@@ -18,6 +18,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    SLNetworkManager *network =[SLNetworkManager managerWithOwner:self];
+//    [network GETService:@"" pathString:@"" param:@{} callback:^(SLSuccessCompletionBlock, SLFailCompletionBlock) {
+//        
+//    }];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
