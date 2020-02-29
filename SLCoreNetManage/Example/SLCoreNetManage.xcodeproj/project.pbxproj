@@ -23,6 +23,7 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		90D75FE7F783DA333412A6E4 /* libPods-SLCoreNetManage_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F598DB6CDADE7B308E8DB509 /* libPods-SLCoreNetManage_Tests.a */; };
+		9A6283F0240A577E006A4018 /* SLBaseNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6283EF240A577E006A4018 /* SLBaseNetworkManager.m */; };
 		BB76F15920537B8E106BB0AB /* libPods-SLCoreNetManage_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC60FAE0E5B11E4EFC987E1 /* libPods-SLCoreNetManage_Example.a */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,8 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9A6283EE240A577E006A4018 /* SLBaseNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLBaseNetworkManager.h; sourceTree = "<group>"; };
+		9A6283EF240A577E006A4018 /* SLBaseNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLBaseNetworkManager.m; sourceTree = "<group>"; };
 		A56A997D96A32093D2BEE115 /* Pods-SLCoreNetManage_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SLCoreNetManage_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SLCoreNetManage_Tests/Pods-SLCoreNetManage_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AC99E7E7C6AB4733EACAB868 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F598DB6CDADE7B308E8DB509 /* libPods-SLCoreNetManage_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SLCoreNetManage_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +192,8 @@
 		9A6283ED240A56AF006A4018 /* SLBaseNetworkManager */ = {
 			isa = PBXGroup;
 			children = (
+				9A6283EE240A577E006A4018 /* SLBaseNetworkManager.h */,
+				9A6283EF240A577E006A4018 /* SLBaseNetworkManager.m */,
 			);
 			path = SLBaseNetworkManager;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A6283F0240A577E006A4018 /* SLBaseNetworkManager.m in Sources */,
 				6003F59E195388D20070C39A /* SLAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* SLViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,

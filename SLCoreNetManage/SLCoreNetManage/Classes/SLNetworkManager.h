@@ -7,11 +7,12 @@
 
 #import <Foundation/Foundation.h>
 #import "AFHTTPSessionManager.h"
-#import "SLNetworkResponse.h"
-#import "SLParamManager.h"
+#import "NSObject+WeakObject.h"
 #import "SLNetworkConfigManager.h"
+#import "SLNetworkResponse.h"
 
 NS_ASSUME_NONNULL_BEGIN
+@class  SLParamManager;
 typedef NS_ENUM(NSInteger,SLNetworkRequestType) {
     SLNetworkRequestType_Get,
     SLNetworkRequestType_Post,

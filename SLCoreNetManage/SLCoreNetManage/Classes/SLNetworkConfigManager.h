@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-@class SLNetworkManager;
 
 NS_ASSUME_NONNULL_BEGIN
-
+//针对: 证书、序列化等配置不通
+@class SLNetworkManager;
 @protocol SLNetworkConfigManager <NSObject>
-
 @optional
 - (void)defaultNetworkConfigManager:(SLNetworkManager *)networkManager;
 @end

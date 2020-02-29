@@ -1,0 +1,1 @@
+../../../../../SLCoreNetManage/Classes/NSObject+WeakObject.h

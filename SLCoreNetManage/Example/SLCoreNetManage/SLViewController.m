@@ -7,8 +7,7 @@
 //
 
 #import "SLViewController.h"
-#import "SLNetworkManager.h"
-
+#import "SLBaseNetworkManager.h"
 @interface SLViewController ()
 
 @end
@@ -18,11 +17,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    SLNetworkManager *network =[SLNetworkManager managerWithOwner:self];
-//    [network GETService:@"" pathString:@"" param:@{} callback:^(SLSuccessCompletionBlock, SLFailCompletionBlock) {
-//        
-//    }];
-	// Do any additional setup after loading the view, typically from a nib.
+    SLBaseNetworkManager *manager =[SLBaseNetworkManager managerWithOwner:self];
+    
+    [(SLBaseNetworkResponse *)manager.response setSuccessCallback:^(id  _Nonnull responseObj) {
+        
+    }];
+    [(SLBaseNetworkResponse *)manager.response setFailureCallback:^(NSError * _Nonnull error) {
+        
+    }];
+    [manager GETService:@"" pathString:@"" param:@{}];
 }
 
 - (void)didReceiveMemoryWarning

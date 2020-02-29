@@ -6,14 +6,14 @@
 //
 
 #import "SLNetworkManager.h"
-#import <objc/runtime.h>
+#import "SLParamManager.h"
 
 @interface SLNetworkManager()
 @property (nonatomic, strong) NSString *hostClassName;
 @property (nonatomic, strong) dispatch_group_t requestGroup;
 @end
 
-@interface SLWeakObjectDeath :NSObject{}
+@interface SLWeakObjectDeath :NSObject
 typedef void(^SLWeakObjectDeathBlock)(SLWeakObjectDeath *sender);
 @property (nonatomic, weak) id owner;
 @property (nonatomic, copy) SLWeakObjectDeathBlock aBlock;
@@ -162,7 +162,6 @@ typedef void(^SLWeakObjectDeathBlock)(SLWeakObjectDeath *sender);
 @end
 
 @implementation SLWeakObjectDeath
-static char associatedObjectNamesKey;
 
 - (void)setBlock:(SLWeakObjectDeathBlock)block{
     self.aBlock = block;
@@ -179,37 +178,6 @@ static char associatedObjectNamesKey;
     _owner = owner;
     [owner objc_setAssociatedObject:[NSString stringWithFormat:@"observerOwner_%p",self] value:self policy:OBJC_ASSOCIATION_RETAIN_NONATOMIC];
 }
-- (NSMutableArray *)associatedObjectNames{
-    NSMutableArray *array = objc_getAssociatedObject(self, &associatedObjectNamesKey);
-    if (!array) {
-        array = [NSMutableArray array];
-        [self setAssociatedObjectNames:array];
-    }
-    return array;
-}
-- (void)setAssociatedObjectNames:(NSMutableArray *)associatedObjectNames{
-    objc_setAssociatedObject(self, &associatedObjectNamesKey, associatedObjectNames,OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-- (void)objc_setAssociatedObject:(NSString *)propertyName value:(id)value policy:(objc_AssociationPolicy)policy{
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_10_0
-    objc_setAssociatedObject(self, objc_unretainedPointer(propertyName), value, policy);
-#else
-    objc_setAssociatedObject(self, (__bridge void *)(propertyName), value, policy);
-#endif
-    [self.associatedObjectNames addObject:propertyName];
-}
 
-- (id)objc_getAssociatedObject:(NSString *)propertyName{
-#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_10_0
-    return objc_getAssociatedObject(self, objc_unretainedPointer(propertyName));
-#else
-    return objc_getAssociatedObject(self, (__bridge void *)(propertyName));
-#endif
-    
-}
-- (void)objc_removeAssociatedObjects{
-    [self.associatedObjectNames removeAllObjects];
-    objc_removeAssociatedObjects(self);
-}
 @end
 
