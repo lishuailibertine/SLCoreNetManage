@@ -25,7 +25,7 @@ DEPENDENCIES:
   - Specta
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - Expecta
     - Specta
@@ -37,9 +37,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
-  SLCoreNetManage: bee5c75656d847f4b3b5b0a38d011e6a0148a38f
+  SLCoreNetManage: 5d088e17500c77e39b2493a44bdaec51b4000799
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
 
-PODFILE CHECKSUM: ba8ba8a9d95478406ae8b446b3bc36432b379e0d
+PODFILE CHECKSUM: cfe64500e1cfde21cf4b0aea10f9a48c721871f8
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4

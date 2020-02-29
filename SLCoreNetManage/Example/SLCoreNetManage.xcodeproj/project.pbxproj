@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2BE11D3861CE89D03615A2EA /* Pods_SLCoreNetManage_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B66B58680D0A3479D55BD /* Pods_SLCoreNetManage_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -23,7 +22,9 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		F43B5508D1B3758D211D0EE9 /* Pods_SLCoreNetManage_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15AE4EF086381197A7856E9F /* Pods_SLCoreNetManage_Example.framework */; };
+		90D75FE7F783DA333412A6E4 /* libPods-SLCoreNetManage_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F598DB6CDADE7B308E8DB509 /* libPods-SLCoreNetManage_Tests.a */; };
+		9A6283E1240A0308006A4018 /* SLNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6283DE240A0308006A4018 /* SLNetworkManager.m */; };
+		BB76F15920537B8E106BB0AB /* libPods-SLCoreNetManage_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC60FAE0E5B11E4EFC987E1 /* libPods-SLCoreNetManage_Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0C90F648874940ABB04544B1 /* SLCoreNetManage.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = SLCoreNetManage.podspec; path = ../SLCoreNetManage.podspec; sourceTree = "<group>"; };
+		0C90F648874940ABB04544B1 /* SLCoreNetManage.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SLCoreNetManage.podspec; path = ../SLCoreNetManage.podspec; sourceTree = "<group>"; };
 		106FEA6E6707400FF899C5FB /* Pods-SLCoreNetManage_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SLCoreNetManage_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SLCoreNetManage_Tests/Pods-SLCoreNetManage_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		15AE4EF086381197A7856E9F /* Pods_SLCoreNetManage_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SLCoreNetManage_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D46509F4E4BA1736C1C14E /* Pods-SLCoreNetManage_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SLCoreNetManage_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SLCoreNetManage_Example/Pods-SLCoreNetManage_Example.release.xcconfig"; sourceTree = "<group>"; };
-		234D4C91D5553AC9170E9E8D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		234D4C91D5553AC9170E9E8D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		3AC60FAE0E5B11E4EFC987E1 /* libPods-SLCoreNetManage_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SLCoreNetManage_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		405AAA934ECE49FEF459EB4D /* Pods-SLCoreNetManage_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SLCoreNetManage_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SLCoreNetManage_Example/Pods-SLCoreNetManage_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* SLCoreNetManage_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLCoreNetManage_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -64,9 +65,14 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		959B66B58680D0A3479D55BD /* Pods_SLCoreNetManage_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SLCoreNetManage_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A6283DD240A0308006A4018 /* SLNetworkResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLNetworkResponse.h; sourceTree = "<group>"; };
+		9A6283DE240A0308006A4018 /* SLNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLNetworkManager.m; sourceTree = "<group>"; };
+		9A6283DF240A0308006A4018 /* SLParamManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLParamManager.h; sourceTree = "<group>"; };
+		9A6283E0240A0308006A4018 /* SLNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLNetworkManager.h; sourceTree = "<group>"; };
+		9A6283E2240A03C0006A4018 /* SLNetworkConfigManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLNetworkConfigManager.h; sourceTree = "<group>"; };
 		A56A997D96A32093D2BEE115 /* Pods-SLCoreNetManage_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SLCoreNetManage_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SLCoreNetManage_Tests/Pods-SLCoreNetManage_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		AC99E7E7C6AB4733EACAB868 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		AC99E7E7C6AB4733EACAB868 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		F598DB6CDADE7B308E8DB509 /* libPods-SLCoreNetManage_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SLCoreNetManage_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +83,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				F43B5508D1B3758D211D0EE9 /* Pods_SLCoreNetManage_Example.framework in Frameworks */,
+				BB76F15920537B8E106BB0AB /* libPods-SLCoreNetManage_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +94,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				2BE11D3861CE89D03615A2EA /* Pods_SLCoreNetManage_Tests.framework in Frameworks */,
+				90D75FE7F783DA333412A6E4 /* libPods-SLCoreNetManage_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,8 +129,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				15AE4EF086381197A7856E9F /* Pods_SLCoreNetManage_Example.framework */,
-				959B66B58680D0A3479D55BD /* Pods_SLCoreNetManage_Tests.framework */,
+				3AC60FAE0E5B11E4EFC987E1 /* libPods-SLCoreNetManage_Example.a */,
+				F598DB6CDADE7B308E8DB509 /* libPods-SLCoreNetManage_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -137,6 +143,11 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* SLViewController.h */,
 				6003F5A6195388D20070C39A /* SLViewController.m */,
+				9A6283E0240A0308006A4018 /* SLNetworkManager.h */,
+				9A6283DE240A0308006A4018 /* SLNetworkManager.m */,
+				9A6283E2240A03C0006A4018 /* SLNetworkConfigManager.h */,
+				9A6283DD240A0308006A4018 /* SLNetworkResponse.h */,
+				9A6283DF240A0308006A4018 /* SLParamManager.h */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -207,7 +218,6 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				C33BA3E2B7A2AE0A7E0A1E21 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -226,7 +236,6 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				B59E81AD8EF39D9A54F98C17 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,6 +267,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -339,54 +349,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B59E81AD8EF39D9A54F98C17 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SLCoreNetManage_Tests/Pods-SLCoreNetManage_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Expecta/Expecta.framework",
-				"${BUILT_PRODUCTS_DIR}/Specta/Specta.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Expecta.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Specta.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SLCoreNetManage_Tests/Pods-SLCoreNetManage_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C33BA3E2B7A2AE0A7E0A1E21 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SLCoreNetManage_Example/Pods-SLCoreNetManage_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/SLCoreNetManage/SLCoreNetManage.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SLCoreNetManage.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SLCoreNetManage_Example/Pods-SLCoreNetManage_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -395,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* SLAppDelegate.m in Sources */,
+				9A6283E1240A0308006A4018 /* SLNetworkManager.m in Sources */,
 				6003F5A7195388D20070C39A /* SLViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);

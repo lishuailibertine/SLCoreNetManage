@@ -7,6 +7,7 @@
 //
 
 #import "SLViewController.h"
+#import "SLNetworkManager.h"
 
 @interface SLViewController ()
 
