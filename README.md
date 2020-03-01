@@ -22,7 +22,7 @@ pod 'SLCoreNetManage'
 
 ## Author
 
-18337125565@163.com, lishuai19@yeah.net
+lishuai19@yeah.net
 
 ## License
 
