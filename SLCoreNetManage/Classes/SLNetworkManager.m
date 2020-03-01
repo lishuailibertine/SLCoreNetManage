@@ -61,6 +61,7 @@ typedef void(^SLWeakObjectDeathBlock)(SLWeakObjectDeath *sender);
 + (instancetype)managerWithOwner:(id)owner configManager:(id<SLNetworkConfigManager>)configManager{
     SLNetworkManager *networkManager = [super manager];
     networkManager.hostClassName = NSStringFromClass([owner class]);
+    [networkManager defaultNetworkConfigManager];
     if ([configManager conformsToProtocol:@protocol(SLNetworkConfigManager)]) {
         if ([configManager respondsToSelector:@selector(defaultNetworkConfigManager:)]) {
             [configManager defaultNetworkConfigManager:networkManager];
@@ -133,13 +134,13 @@ typedef void(^SLWeakObjectDeathBlock)(SLWeakObjectDeath *sender);
     }
 }
 - (void)successWithOperation:(NSURLSessionDataTask *)aOperation responseObject:(id)aResponseObject{
-    if ([self.response respondsToSelector:@selector(handleRequestWithService:path:param:handleFinished:)]) {
+    if ([self.response respondsToSelector:@selector(handleResponse:responseObject:error:)]) {
         [self.response handleResponse:aOperation responseObject:aResponseObject error:nil];
     }
 }
 - (void)failureWithOperation:(NSURLSessionDataTask *)aOperation error:(NSError *)error{
     
-   if ([self.response respondsToSelector:@selector(handleRequestWithService:path:param:handleFinished:)]) {
+   if ([self.response respondsToSelector:@selector(handleResponse:responseObject:error:)]) {
         [self.response handleResponse:aOperation responseObject:nil error:error];
     }
 }

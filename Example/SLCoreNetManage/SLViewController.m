@@ -14,18 +14,17 @@
 
 @implementation SLViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
     SLBaseNetworkManager *manager =[SLBaseNetworkManager managerWithOwner:self];
     
     [(SLBaseNetworkResponse *)manager.response setSuccessCallback:^(id  _Nonnull responseObj) {
-        
+        NSLog(@"请求成功");
     }];
     [(SLBaseNetworkResponse *)manager.response setFailureCallback:^(NSError * _Nonnull error) {
-        
+        NSLog(@"请求失败%@",error);
     }];
-    [manager GETService:@"" pathString:@"" param:@{}];
+    [manager GETService:@"https://openapi.bitmart.com" pathString:@"/v2/ping" param:@{}];
 }
 
 - (void)didReceiveMemoryWarning

@@ -18,5 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface SLBaseNetworkManager : SLNetworkManager
+//  SLBaseNetworkResponse *response;
+
+// - (void)RUNRequest:(SLNetworkRequestType)requestType service:(NSString *)serviceString pathString:(NSString * __nullable)pathString param:(NSDictionary * __nullable)aParam;
+
+// - (void)GETService:(NSString *)serviceString pathString:(NSString * __nullable)pathString param:(NSDictionary * __nullable)aParam;
+
+// - (void)POSTService:(NSString *)serviceString pathString:(NSString * __nullable)pathString param:(NSDictionary * __nullable)aParam;
 @end
 NS_ASSUME_NONNULL_END
